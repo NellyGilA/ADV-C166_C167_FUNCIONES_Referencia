@@ -50,35 +50,7 @@ def left_dir(event):
     newx = newx - 10
     direction = "left"
     draw(direction, oldx, oldy, newx, newy)
-    
-def down_dir(event):
-    global direction
-    global oldx
-    global oldy
-    global newx
-    global newy
-    
-    oldx = newx
-    oldy = newy
-    
-    newy = newy + 10
-    direction = "down"
-    draw(direction, oldx, oldy, newx, newy)
-
-def up_dir(event):
-    global direction
-    global oldx
-    global oldy
-    global newx
-    global newy
-    
-    oldx = newx
-    oldy = newy
-    
-    newy = newy - 10
-    direction = "down"
-    draw(direction, oldx, oldy, newx, newy)
-    
+  
 def draw(direction, oldx, oldy, newx, newy):
     fill_color = input_box.get()
     
@@ -86,16 +58,9 @@ def draw(direction, oldx, oldy, newx, newy):
         right_line= canvas.create_line(oldx,oldy,newx,newy,width = 3,fill= fill_color)
     if(direction=="left"):
         left_line= canvas.create_line(oldx,oldy,newx,newy,width = 3,fill= fill_color)
-    if(direction=="up"):
-        up_line= canvas.create_line(oldx,oldy,newx,newy,width = 3,fill= fill_color)
-    if(direction=="down"):
-        down_line= canvas.create_line(oldx,oldy,newx,newy,width = 3,fill= fill_color)
-
-
+    
 canvas.pack()
 root.bind("<Right>",right_dir)
 root.bind("<Left>",left_dir)
-root.bind("<Up>",up_dir)
-root.bind("<Down>",down_dir)
 root.mainloop()
 
